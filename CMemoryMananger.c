@@ -19,7 +19,7 @@ void* CMemoryMananger_alloc(CMemoryMananger* mg, size_t bytes) {
         mg -> _pool = (void**)malloc(sizeof(void*) * 1);
         mg -> _pool_size = 1;
         mg -> _pool[0] = malloc(bytes);
-        return NULL;
+        return mg -> _pool[0];
     }
     void ** tmp = (void**)malloc(sizeof(void*) * mg -> _pool_size + 1);
     if(tmp == NULL) return NULL;
